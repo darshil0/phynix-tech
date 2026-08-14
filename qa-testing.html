@@ -10,118 +10,171 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Phynix Tech Services">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script>
+        tailwind = {
+            darkMode: 'class'
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        function updateThemeIcons() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const lightIcons = document.querySelectorAll('.theme-toggle-light-icon');
+            const darkIcons = document.querySelectorAll('.theme-toggle-dark-icon');
+            lightIcons.forEach(icon => {
+                if (isDark) icon.classList.remove('hidden');
+                else icon.classList.add('hidden');
+            });
+            darkIcons.forEach(icon => {
+                if (isDark) icon.classList.add('hidden');
+                else icon.classList.remove('hidden');
+            });
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+            updateThemeIcons();
+        }
+
+        document.addEventListener('DOMContentLoaded', updateThemeIcons);
+    </script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased flex flex-col min-h-screen selection:bg-orange-500 selection:text-slate-950">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased flex flex-col min-h-screen selection:bg-orange-500 selection:text-white transition-colors duration-200">
 
     <!-- Header / Navigation -->
-    <header class="bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800 shadow-lg">
+    <header class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
             <div class="flex items-center space-x-3">
-                <a href="index.html" class="flex items-center space-x-3 text-2xl font-black tracking-wider text-orange-500 hover:text-orange-400 transition-colors group">
-                    <span class="p-2 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-xl border border-orange-500/30 group-hover:border-orange-500/60 shadow-inner transition-all">🔥</span>
-                    <span class="text-white">PHYNIX<span class="text-orange-500 font-light">TECH</span></span>
+                <a href="index.html" class="flex items-center space-x-3 text-2xl font-black tracking-wider text-orange-600 dark:text-orange-500 hover:text-orange-500 transition-colors group">
+                    <span class="p-2 bg-orange-500/10 rounded-xl border border-orange-500/20 group-hover:border-orange-500/40 transition-all" aria-hidden="true">🔥</span>
+                    <span class="text-slate-900 dark:text-white">PHYNIX<span class="text-orange-600 dark:text-orange-500 font-light">TECH</span></span>
                 </a>
             </div>
             <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
-                <a href="index.html" class="text-slate-300 hover:text-orange-400 transition-colors pb-1">Home</a>
-                <a href="web-services.html" class="text-slate-300 hover:text-orange-400 transition-colors pb-1">Web Services</a>
-                <a href="qa-testing.html" class="text-orange-500 border-b-2 border-orange-500 pb-1 font-bold" aria-current="page">QA & Testing</a>
-                <a href="infrastructure.html" class="text-slate-300 hover:text-orange-400 transition-colors pb-1">IT Infrastructure</a>
-                <a href="contact.html" class="text-slate-300 hover:text-orange-400 transition-colors pb-1">Contact Us</a>
+                <a href="index.html" class="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors pb-1">Home</a>
+                <a href="web-services.html" class="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors pb-1">Web Services</a>
+                <a href="qa-testing.html" class="text-orange-600 dark:text-orange-500 border-b-2 border-orange-600 dark:border-orange-500 pb-1 font-bold" aria-current="page">QA & Testing</a>
+                <a href="infrastructure.html" class="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors pb-1">IT Infrastructure</a>
+                <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors pb-1">Contact Us</a>
             </nav>
-            <div class="hidden md:block">
-                <a href="contact.html" class="px-5 py-2.5 text-xs font-bold bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 rounded-lg hover:from-orange-400 hover:to-amber-400 transition-all shadow-md hover:shadow-orange-500/20">
+            <div class="hidden md:flex items-center space-x-4">
+                <button type="button" onclick="toggleTheme()" aria-label="Toggle dark or light theme" class="p-2.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <svg class="theme-toggle-light-icon hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg class="theme-toggle-dark-icon hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+                <a href="contact.html" class="px-5 py-2.5 text-xs font-bold bg-orange-600 dark:bg-orange-500 text-white dark:text-slate-950 rounded-xl hover:bg-orange-700 dark:hover:bg-orange-400 transition-colors shadow-sm">
                     Get In Touch
                 </a>
             </div>
         </div>
-        <!-- Mobile Menu Navigation Links -->
-        <nav class="md:hidden bg-slate-900/95 border-t border-slate-800 px-4 py-3 flex justify-between items-center text-xs font-semibold overflow-x-auto gap-2">
-            <a href="index.html" class="text-slate-300 hover:text-orange-400 px-2 py-1">Home</a>
-            <a href="web-services.html" class="text-slate-300 hover:text-orange-400 px-2 py-1">Web Services</a>
-            <a href="qa-testing.html" class="text-orange-500 font-bold px-2 py-1 rounded bg-orange-500/10 border border-orange-500/20" aria-current="page">QA & Testing</a>
-            <a href="infrastructure.html" class="text-slate-300 hover:text-orange-400 px-2 py-1">Infrastructure</a>
-            <a href="contact.html" class="text-slate-300 hover:text-orange-400 px-2 py-1">Contact</a>
+        <!-- Mobile Navigation Bar -->
+        <nav class="md:hidden bg-white/95 dark:bg-slate-900/95 border-t border-slate-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between text-xs font-semibold gap-2 overflow-x-auto">
+            <div class="flex items-center gap-1.5 overflow-x-auto">
+                <a href="index.html" class="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 px-2.5 py-1.5 rounded-lg whitespace-nowrap">Home</a>
+                <a href="web-services.html" class="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 px-2.5 py-1.5 rounded-lg whitespace-nowrap">Web Services</a>
+                <a href="qa-testing.html" class="text-orange-600 dark:text-orange-500 font-bold px-2.5 py-1.5 rounded-lg bg-orange-500/10 border border-orange-500/20 whitespace-nowrap" aria-current="page">QA & Testing</a>
+                <a href="infrastructure.html" class="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 px-2.5 py-1.5 rounded-lg whitespace-nowrap">Infrastructure</a>
+                <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 px-2.5 py-1.5 rounded-lg whitespace-nowrap">Contact</a>
+            </div>
+            <button type="button" onclick="toggleTheme()" aria-label="Toggle theme" class="p-2 text-slate-500 dark:text-slate-400 rounded-lg border border-slate-200 dark:border-slate-800 shrink-0">
+                <svg class="theme-toggle-light-icon hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                <svg class="theme-toggle-dark-icon hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            </button>
         </nav>
     </header>
 
     <!-- Main Content -->
     <main class="flex-grow">
         <!-- Hero Section -->
-        <section class="relative py-20 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border-b border-slate-800">
+        <section class="py-20 md:py-28 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <span class="inline-block text-xs font-bold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-3.5 py-1.5 rounded-full border border-orange-500/30 mb-4">Practice Area • Quality Engineering</span>
-                <h1 class="text-3xl sm:text-5xl font-black text-white mb-6">Quality Engineering & Automated Verification</h1>
-                <p class="text-slate-300 max-w-3xl text-lg leading-relaxed">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-orange-600 dark:text-orange-400 bg-orange-500/10 px-3.5 py-1.5 rounded-full border border-orange-500/20 mb-6">
+                    Practice Area • Quality Engineering
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
+                    Quality Engineering & Automated Verification
+                </h1>
+                <p class="text-slate-600 dark:text-slate-400 max-w-3xl text-lg leading-relaxed font-normal">
                     Prevent critical software defects, automate continuous E2E regression suites, stress test under high load, and validate OWASP security compliance before code reaches production.
                 </p>
             </div>
         </section>
 
         <!-- QA Offerings Grid -->
-        <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-slate-900/80 p-8 rounded-2xl border border-slate-800 hover:border-orange-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5">
-                    <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-400 font-bold mb-5 border border-orange-500/20">01</div>
-                    <h2 class="text-xl font-bold text-white mb-3">Automated End-to-End (E2E) Test Frameworks</h2>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 transition-all hover:border-orange-500/50">
+                    <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-600 dark:text-orange-400 font-bold mb-5 border border-orange-500/20">01</div>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Automated End-to-End (E2E) Test Frameworks</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
                         Designing robust test automation architecture using Playwright, Cypress, Selenium, and PyTest. Integrated seamlessly into GitHub Actions & GitLab CI/CD pipelines for immediate regression signals.
                     </p>
-                    <ul class="text-xs text-slate-400 space-y-2.5 font-medium border-t border-slate-800/80 pt-4">
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Cross-browser & Parallel Automated E2E Execution</li>
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> API, GraphQL & Microservice Integration Testing Suites</li>
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Automated Visual Snapshot Regression & Layout Auditing</li>
+                    <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-2.5 font-medium border-t border-slate-100 dark:border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Cross-browser & Parallel Automated E2E Execution</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> API, GraphQL & Microservice Integration Testing Suites</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Automated Visual Snapshot Regression & Layout Auditing</li>
                     </ul>
                 </div>
 
-                <div class="bg-slate-900/80 p-8 rounded-2xl border border-slate-800 hover:border-orange-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5">
-                    <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-400 font-bold mb-5 border border-orange-500/20">02</div>
-                    <h2 class="text-xl font-bold text-white mb-3">Performance & Distributed Load Testing</h2>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 transition-all hover:border-orange-500/50">
+                    <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-600 dark:text-orange-400 font-bold mb-5 border border-orange-500/20">02</div>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Performance & Distributed Load Testing</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
                         Stress testing enterprise applications under extreme simulated concurrent user traffic. Identifying memory leaks, database query bottlenecks, and latency degradation before peak commercial events.
                     </p>
-                    <ul class="text-xs text-slate-400 space-y-2.5 font-medium border-t border-slate-800/80 pt-4">
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Distributed Load & Spike Simulations (k6, Locust, JMeter)</li>
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Latency Profiling & API Throughput Benchmarks</li>
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Scalability Bottleneck & Connection Pool Analysis</li>
+                    <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-2.5 font-medium border-t border-slate-100 dark:border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Distributed Load & Spike Simulations (k6, Locust, JMeter)</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Latency Profiling & API Throughput Benchmarks</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Scalability Bottleneck & Connection Pool Analysis</li>
                     </ul>
                 </div>
 
-                <div class="bg-slate-900/80 p-8 rounded-2xl border border-slate-800 hover:border-orange-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5">
-                    <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-400 font-bold mb-5 border border-orange-500/20">03</div>
-                    <h2 class="text-xl font-bold text-white mb-3">Security & Vulnerability Auditing</h2>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 transition-all hover:border-orange-500/50">
+                    <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-600 dark:text-orange-400 font-bold mb-5 border border-orange-500/20">03</div>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Security & Vulnerability Auditing</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
                         Automated static and dynamic application security testing (SAST/DAST) to discover vulnerabilities, OWASP Top 10 exploits, and dependency CVE risks prior to launch.
                     </p>
-                    <ul class="text-xs text-slate-400 space-y-2.5 font-medium border-t border-slate-800/80 pt-4">
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Automated SAST/DAST CI Gateways & Code Scans</li>
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Dependency Vulnerability & License Compliance Audits</li>
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> OWASP Top 10 Security Verification & Remediation Guidance</li>
+                    <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-2.5 font-medium border-t border-slate-100 dark:border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Automated SAST/DAST CI Gateways & Code Scans</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Dependency Vulnerability & License Compliance Audits</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> OWASP Top 10 Security Verification & Remediation Guidance</li>
                     </ul>
                 </div>
 
-                <div class="bg-slate-900/80 p-8 rounded-2xl border border-slate-800 hover:border-orange-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5">
-                    <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-400 font-bold mb-5 border border-orange-500/20">04</div>
-                    <h2 class="text-xl font-bold text-white mb-3">Manual & Exploratory Quality Assurance</h2>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 transition-all hover:border-orange-500/50">
+                    <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-600 dark:text-orange-400 font-bold mb-5 border border-orange-500/20">04</div>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Manual & Exploratory Quality Assurance</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
                         Rigorous human verification targeting complex business logic edge cases, user workflow friction, dynamic UI state transitions, and real device hardware compatibility.
                     </p>
-                    <ul class="text-xs text-slate-400 space-y-2.5 font-medium border-t border-slate-800/80 pt-4">
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Structured Exploratory Functional Testing</li>
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Native Mobile, Tablet & Desktop Device Test Matrices</li>
-                        <li class="flex items-center gap-2"><span class="text-orange-400 font-bold">•</span> Defect Lifecycle Management & Jira Integration</li>
+                    <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-2.5 font-medium border-t border-slate-100 dark:border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Structured Exploratory Functional Testing</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Native Mobile, Tablet & Desktop Device Test Matrices</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-600 dark:text-orange-400 font-bold" aria-hidden="true">•</span> Defect Lifecycle Management & Jira Integration</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Call to Action -->
-            <div class="mt-16 bg-gradient-to-r from-orange-500/10 via-slate-900 to-slate-900 p-8 sm:p-10 rounded-2xl border border-orange-500/30 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+            <div class="mt-16 bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Elevate your software quality gates today</h3>
-                    <p class="text-slate-300 text-sm">Speak with our quality engineering team in Dallas to establish continuous verification pipelines.</p>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Elevate your software quality gates today</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Speak with our quality engineering team in Dallas to establish continuous verification pipelines.</p>
                 </div>
-                <a href="contact.html" class="px-7 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-bold text-sm rounded-xl hover:from-orange-400 hover:to-amber-400 transition-all shadow-lg shadow-orange-500/20 whitespace-nowrap">
+                <a href="contact.html" class="px-7 py-3.5 bg-orange-600 dark:bg-orange-500 text-white dark:text-slate-950 font-bold text-sm rounded-xl hover:bg-orange-700 dark:hover:bg-orange-400 transition-colors shrink-0">
                     Request Quality Audit
                 </a>
             </div>
@@ -129,29 +182,29 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800 text-sm">
+    <footer class="bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-400 py-16 border-t border-slate-200 dark:border-slate-800 text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="space-y-4">
-                <a href="index.html" class="flex items-center space-x-2 text-xl font-black text-orange-500">
-                    <span>🔥</span>
-                    <span>PHYNIX<span class="text-white font-light">TECH</span></span>
+                <a href="index.html" class="flex items-center space-x-2 text-xl font-black text-orange-600 dark:text-orange-500">
+                    <span aria-hidden="true">🔥</span>
+                    <span class="text-slate-900 dark:text-white">PHYNIX<span class="text-orange-600 dark:text-orange-500 font-light">TECH</span></span>
                 </a>
-                <p class="text-xs text-slate-400 leading-relaxed">Enterprise Web Design & Architecture, Automated Quality Assurance, Managed Cloud & Industrial IT Infrastructure.</p>
-                <div class="text-xs text-orange-400 font-mono">Dallas, TX • USA</div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Enterprise Web Design & Architecture, Automated Quality Assurance, Managed Cloud & Industrial IT Infrastructure.</p>
+                <div class="text-xs text-orange-600 dark:text-orange-400 font-mono">Dallas, TX • USA</div>
             </div>
             <div>
-                <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">Quick Navigation</h4>
+                <h4 class="text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider mb-4 border-b border-slate-200 dark:border-slate-800 pb-2">Quick Navigation</h4>
                 <ul class="space-y-2.5 text-xs">
-                    <li><a href="index.html" class="hover:text-orange-400 transition-colors">Home</a></li>
-                    <li><a href="web-services.html" class="hover:text-orange-400 transition-colors">Web Services</a></li>
-                    <li><a href="qa-testing.html" class="text-orange-400 hover:text-orange-300 font-medium transition-colors">QA & Testing</a></li>
-                    <li><a href="infrastructure.html" class="hover:text-orange-400 transition-colors">IT Infrastructure</a></li>
-                    <li><a href="contact.html" class="hover:text-orange-400 transition-colors">Contact Us</a></li>
+                    <li><a href="index.html" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Home</a></li>
+                    <li><a href="web-services.html" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Web Services</a></li>
+                    <li><a href="qa-testing.html" class="text-orange-600 dark:text-orange-400 font-semibold hover:text-orange-700 transition-colors">QA & Testing</a></li>
+                    <li><a href="infrastructure.html" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">IT Infrastructure</a></li>
+                    <li><a href="contact.html" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Contact Us</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">Practice Offerings</h4>
-                <ul class="space-y-2.5 text-xs text-slate-400">
+                <h4 class="text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider mb-4 border-b border-slate-200 dark:border-slate-800 pb-2">Practice Offerings</h4>
+                <ul class="space-y-2.5 text-xs text-slate-500 dark:text-slate-400">
                     <li>• Enterprise Web Design & UX</li>
                     <li>• Automated QA Pipelines</li>
                     <li>• Cloud Infrastructure Hardening</li>
@@ -159,21 +212,21 @@
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">Corporate Headquarters</h4>
-                <p class="text-xs leading-relaxed text-slate-400">
-                    <strong class="text-slate-200">Phynix Tech Services</strong><br>
+                <h4 class="text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider mb-4 border-b border-slate-200 dark:border-slate-800 pb-2">Corporate Headquarters</h4>
+                <p class="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                    <strong class="text-slate-800 dark:text-slate-200">Phynix Tech Services</strong><br>
                     111 W Mockingbird Ln<br>
                     Dallas, TX 75247, USA<br>
-                    <a href="mailto:contact@phynixtech.com" class="text-orange-400 hover:underline">contact@phynixtech.com</a>
+                    <a href="mailto:contact@phynixtech.com" class="text-orange-600 dark:text-orange-400 hover:underline">contact@phynixtech.com</a>
                 </p>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-200 dark:border-slate-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
             <div>&copy; 2026 Phynix Tech Services. All rights reserved. Headquartered in Dallas, TX.</div>
-            <div class="flex space-x-6 text-slate-400">
-                <a href="contact.html" class="hover:text-orange-400 transition-colors">Privacy Policy</a>
-                <a href="contact.html" class="hover:text-orange-400 transition-colors">Terms of Service</a>
-                <a href="contact.html" class="hover:text-orange-400 transition-colors">Security</a>
+            <div class="flex space-x-6 text-slate-500 dark:text-slate-400">
+                <a href="contact.html" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Privacy Policy</a>
+                <a href="contact.html" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Terms of Service</a>
+                <a href="contact.html" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Security</a>
             </div>
         </div>
     </footer>
