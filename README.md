@@ -6,7 +6,7 @@ This repository contains the multi-page static web architecture for **Phynix Tec
 
 ## 🏛️ Architecture & Technical Principles
 
-- **Architecture:** Multi-Page Application (MPA) consisting of standalone HTML5 pages (`index.html`, `web-services.html`, `qa-testing.html`, `infrastructure.html`, `contact.html`).
+- **Architecture:** Multi-Page Application (MPA) consisting of standalone HTML5 pages (`index.html`, `web-services.html`, `qa-testing.html`, `infrastructure.html`, `contact.html`, `privacy-policy.html`, `terms-of-service.html`, `security.html`).
 - **Theme Support:** Native Light & Dark theme toggle powered by Tailwind CSS `tailwind.config` class-based dark mode (`darkMode: 'class'`) and zero-dependency inline theme script preserving system preferences and `localStorage`.
 - **Pure Static Architecture:** Built strictly using native HTML5 and utility CSS without heavy JS frameworks, external build dependencies, or client-side routing.
 - **Static Corporate Contact:** Replaced dynamic contact forms with a clean static corporate contact section featuring Dallas HQ details, direct email mailto links, and support availability.
@@ -26,7 +26,10 @@ phynixtech-site/
 ├── web-services.html      # Enterprise Web Design, UI/UX & Edge Architecture
 ├── qa-testing.html        # Quality Engineering & Automated Verification Frameworks
 ├── infrastructure.html    # Managed Cloud Operations, OT Security & Infrastructure
-└── contact.html           # Corporate Contact Details & Operating Hours
+├── contact.html           # Corporate Contact Details & Operating Hours
+├── privacy-policy.html    # Corporate Privacy Policy & Data Handling Practices
+├── terms-of-service.html  # Website Usage Terms & Consulting Engagement Framework
+└── security.html          # Enterprise Zero-Trust Security Posture & Vulnerability Policies
 ```
 
 ---
