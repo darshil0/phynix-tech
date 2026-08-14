@@ -1,4 +1,4 @@
-# Phynix Tech Services — Enterprise Web, QA & IT Infrastructure Site
+# Phynix Tech Services — Enterprise Web, QA & IT Services Offering Web Development Firm
 
 This repository contains the multi-page static web architecture for **Phynix Tech Services** (Headquartered in Dallas, TX). The site showcases the company's expansion into Enterprise Web Design & Development, Quality Assurance (QA) Engineering, Managed Cloud Operations, and Industrial IT Infrastructure.
 
@@ -75,7 +75,3 @@ This repository is optimized for direct hosting on **GitHub Pages**.
 111 W Mockingbird Ln, Dallas, TX 75247, USA
 
 *Core Offerings:* Web Design & Development | QA & Automation | Managed Cloud | OT & Industrial IT Infrastructure
-
-```
-
-```
