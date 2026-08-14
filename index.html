@@ -10,12 +10,12 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Phynix Tech Services">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind = {
+        tailwind.config = {
             darkMode: 'class'
         }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');

@@ -7,7 +7,7 @@ This repository contains the multi-page static web architecture for **Phynix Tec
 ## 🏛️ Architecture & Technical Principles
 
 - **Architecture:** Multi-Page Application (MPA) consisting of standalone HTML5 pages (`index.html`, `web-services.html`, `qa-testing.html`, `infrastructure.html`, `contact.html`).
-- **Theme Support:** Native Light & Dark theme toggle powered by Tailwind CSS `dark:` class modifiers and zero-dependency inline theme script preserving system preferences and `localStorage`.
+- **Theme Support:** Native Light & Dark theme toggle powered by Tailwind CSS `tailwind.config` class-based dark mode (`darkMode: 'class'`) and zero-dependency inline theme script preserving system preferences and `localStorage`.
 - **Pure Static Architecture:** Built strictly using native HTML5 and utility CSS without heavy JS frameworks, external build dependencies, or client-side routing.
 - **Static Corporate Contact:** Replaced dynamic contact forms with a clean static corporate contact section featuring Dallas HQ details, direct email mailto links, and support availability.
 - **Accessibility:** Full WCAG 2.1 AA compliance with semantic HTML tags, explicit ARIA attributes, and WCAG-compliant color contrast across both light and dark themes.
