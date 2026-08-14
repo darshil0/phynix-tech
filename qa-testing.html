@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA & Testing | Phynix Tech Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Header / Navigation -->
+    <header class="bg-slate-800/90 backdrop-blur sticky top-0 z-50 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="flex items-center space-x-3 text-2xl font-bold tracking-wider text-orange-500 hover:text-orange-400">
+                    <span class="p-2 bg-orange-500/10 rounded-lg border border-orange-500/30">🔥</span>
+                    <span>PHYNIX<span class="text-slate-300 font-light">TECH</span></span>
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide">
+                <a href="index.html" class="text-slate-300 hover:text-orange-400 transition-colors pb-1">Home</a>
+                <a href="web-services.html" class="text-slate-300 hover:text-orange-400 transition-colors pb-1">Web Services</a>
+                <a href="qa-testing.html" class="text-orange-500 border-b-2 border-orange-500 pb-1" aria-current="page">QA & Testing</a>
+                <a href="infrastructure.html" class="text-slate-300 hover:text-orange-400 transition-colors pb-1">IT Infrastructure</a>
+                <a href="contact.html" class="text-slate-300 hover:text-orange-400 transition-colors pb-1">Contact Us</a>
+            </nav>
+            <div class="md:hidden">
+                <a href="contact.html" class="px-4 py-2 text-xs font-semibold bg-orange-500 text-slate-900 rounded hover:bg-orange-400">Contact Us</a>
+            </div>
+        </div>
+        <nav class="md:hidden bg-slate-800 border-t border-slate-700 px-4 py-3 flex justify-around text-xs font-semibold">
+            <a href="index.html" class="text-slate-300 hover:text-orange-400">Home</a>
+            <a href="web-services.html" class="text-slate-300 hover:text-orange-400">Web Services</a>
+            <a href="qa-testing.html" class="text-orange-500">QA & Testing</a>
+            <a href="infrastructure.html" class="text-slate-300 hover:text-orange-400">Infrastructure</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="py-16 bg-slate-800/40 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <span class="text-xs font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">Practice Area</span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-4 mb-4">Quality Engineering & Testing Services</h1>
+                <p class="text-slate-400 max-w-3xl text-lg leading-relaxed">
+                    Prevent critical defects, automate continuous verification, and validate security compliance before deployments touch production environments.
+                </p>
+            </div>
+        </section>
+
+        <!-- QA Offerings Grid -->
+        <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-800/60 p-8 rounded-xl border border-slate-700">
+                    <h2 class="text-xl font-bold text-white mb-3">Automated Test Frameworks</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Designing robust end-to-end (E2E) and integration testing pipelines using Playwright, Cypress, Selenium, and PyTest. Integrated directly into CI/CD workflows for immediate regression feedback.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li>• Cross-browser & Cross-platform Automated E2E Execution</li>
+                        <li>• API & Microservice Integration Testing</li>
+                        <li>• Automated Visual Regression & Layout Auditing</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800/60 p-8 rounded-xl border border-slate-700">
+                    <h2 class="text-xl font-bold text-white mb-3">Performance & Load Testing</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Stress test mission-critical web applications under extreme simulated concurrent user loads. Identify database bottlenecks, memory leaks, and latency degradation before peak demand.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li>• Distributed Load & Stress Simulations (k6, Locust, JMeter)</li>
+                        <li>• Latency & Throughput Profiling</li>
+                        <li>• Scalability Bottleneck Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800/60 p-8 rounded-xl border border-slate-700">
+                    <h2 class="text-xl font-bold text-white mb-3">Security & Vulnerability Auditing</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Automated static and dynamic application security testing (SAST/DAST) to discover vulnerabilities, OWASP Top 10 exploits, and dependency risks prior to launch.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li>• Automated SAST & DAST Pipeline Integration</li>
+                        <li>• Dependency Vulnerability & License Compliance Scanning</li>
+                        <li>• OWASP Top 10 Security Verification</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800/60 p-8 rounded-xl border border-slate-700">
+                    <h2 class="text-xl font-bold text-white mb-3">Manual & Exploratory Quality Assurance</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Thorough human verification targeting complex business logic edge cases, user experience flows, dynamic UI state transitions, and device compatibility.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li>• Exploratory Functional Testing</li>
+                        <li>• Native Mobile & Tablet Device Matrices</li>
+                        <li>• Comprehensive Test Case Management & Bug Tracking</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="mt-16 bg-gradient-to-r from-orange-500/10 to-slate-800 p-8 rounded-2xl border border-orange-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Elevate your software quality today</h3>
+                    <p class="text-slate-300 text-sm">Speak with our QA leads to establish automated testing gates for your software development lifecycle.</p>
+                </div>
+                <a href="contact.html" class="px-6 py-3 bg-orange-500 text-slate-950 font-bold text-sm rounded-lg hover:bg-orange-400 transition-colors whitespace-nowrap">
+                    Request QA Audit
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <a href="index.html" class="text-xl font-bold text-orange-500">PHYNIX<span class="text-slate-300 font-light">TECH</span></a>
+                <p class="text-xs text-slate-400">Enterprise Web Design, Quality Assurance, Managed Cloud & Industrial IT Infrastructure.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="index.html" class="hover:text-orange-400">Home</a></li>
+                    <li><a href="web-services.html" class="hover:text-orange-400">Web Services</a></li>
+                    <li><a href="qa-testing.html" class="hover:text-orange-400">QA & Testing</a></li>
+                    <li><a href="infrastructure.html" class="hover:text-orange-400">IT Infrastructure</a></li>
+                    <li><a href="contact.html" class="hover:text-orange-400">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Services</h4>
+                <ul class="space-y-2 text-xs">
+                    <li>Enterprise Web Architecture</li>
+                    <li>Automated Testing Frameworks</li>
+                    <li>Cloud Infrastructure Hardening</li>
+                    <li>OT & Industrial Cybersecurity</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Corporate Info</h4>
+                <p class="text-xs leading-relaxed">
+                    Phynix Tech Services<br>
+                    111 W Mockingbird Ln<br>
+                    Dallas, TX 75247, USA
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-900 text-center text-xs text-slate-500">
+            &copy; 2026 Phynix Tech Services. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

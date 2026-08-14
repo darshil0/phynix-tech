@@ -8,7 +8,7 @@ This repository contains the multi-page static web architecture for **Phynix Tec
 
 - **Architecture:** Multi-Page Application (MPA) consisting of standalone HTML5 pages.
 - **Styling Engine:** Utility-first CSS using [Tailwind CSS](https://tailwindcss.com/).
-- **Zero-JavaScript Mandate:** Built strictly using native HTML5 and CSS. No dynamic JavaScript scripts, client-side routing, or external runtime libraries are included, ensuring maximum performance, zero client-side script security vectors, and fast edge delivery.
+- **Zero-JavaScript Mandate:** Built strictly using native HTML5 and CSS. No dynamic JavaScript scripts, client-side routing, or external runtime custom libraries are included, ensuring maximum performance, zero client-side script security vectors, and fast edge delivery.
 - **Accessibility:** Structured using semantic HTML5 elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) following WCAG 2.1 AA accessibility standards.
 
 ---
@@ -24,18 +24,17 @@ phynixtech-site/
 ├── qa-testing.html        # Quality Engineering & Automated Test Frameworks
 ├── infrastructure.html    # Cloud Operations, OT & Cybersecurity Hardening
 └── contact.html           # Direct Contact Info & Native HTML5 Form
-
 ```
 
 ---
 
 ## 🚀 Local Development & Preview
 
-Since this repository uses pure HTML and CSS, no build scripts, node packages, or server runtimes are required.
+Since this repository uses pure HTML and CSS, no build scripts, node packages, or complex server runtimes are required.
 
 ### Option 1: Direct File Access
 
-Open `index.html` directly in any web browser.
+Open `index.html` directly in any modern web browser.
 
 ### Option 2: Local HTTP Server (Recommended)
 
@@ -43,11 +42,10 @@ To test absolute pathing and local routing:
 
 ```bash
 # Using Python 3 built-in HTTP server
-python -m http.server 8000
+python3 -m http.server 8000
 
 # Using Node npx serve
 npx serve .
-
 ```
 
 Then navigate to `http://localhost:8000` in your browser.
@@ -61,10 +59,8 @@ This repository is optimized for direct hosting on **GitHub Pages**.
 1. **Jekyll Bypass:** The `.nojekyll` file in the root directory ensures GitHub Pages serves files as raw static assets without processing them through Jekyll.
 2. **Publishing Branch:** Configured to deploy from the `main` branch at `/(root)`.
 3. **Custom Domain setup (Optional):**
-* Ensure a `CNAME` file containing your domain (e.g., `phynixtechservice.com`) is placed in the root folder.
-* Configure DNS `A` records to point to GitHub Pages IP addresses (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`).
-
-
+   - Ensure a `CNAME` file containing your domain (e.g., `phynixtechservice.com`) is placed in the root folder.
+   - Configure DNS `A` records to point to GitHub Pages IP addresses (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`).
 
 ---
 
@@ -75,7 +71,3 @@ This repository is optimized for direct hosting on **GitHub Pages**.
 111 W Mockingbird Ln, Dallas, TX 75247, USA
 
 *Core Offerings:* Web Design & Development | QA & Automation | Managed Cloud | OT & Industrial IT Infrastructure
-
-```
-
-```
